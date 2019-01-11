@@ -1,8 +1,11 @@
+import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
 // Solution to avoid multiple calls to fetchUser
-export const fetchPostAndUsers = () => async dispatch => {
-    const posts = await dispatch(fetchPosts());
+export const fetchPostAndUsers = () => async (dispatch, getState) => {
+    await dispatch(fetchPosts());
+    const posts = getState().posts;
+    const userIds = _.uniq(_.map(posts, 'userId'));
 };
 
 export const fetchPosts = () => async dispatch => {
