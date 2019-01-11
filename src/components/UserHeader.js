@@ -14,4 +14,8 @@ class UserHeader extends React.Component {
 
 }
 
-export default connect(null, { fetchUser })(UserHeader);
+const mapStateToProps = (state) => {
+    return { users: state.users };
+};
+
+export default connect(mapStateToProps, { fetchUser })(UserHeader);
