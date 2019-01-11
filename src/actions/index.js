@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
 // Solution to avoid multiple calls to fetchUser
